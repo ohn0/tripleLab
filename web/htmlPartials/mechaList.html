@@ -1,0 +1,26 @@
+<h2>Mecha List</h2>
+<div id="mechaDIV">
+<table id="mechaTable">
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th><a href="" ng-click="sortField='mechaName'; reverse = !reverse">Mecha Name</a></th>
+        <th><a href="" ng-click="sortField='mechaHeight'; reverse = !reverse">Mecha Height(meters)</a></th>
+        <th><a href="" ng-click="sortField='mechaTable_ID'; reverse = !reverse">Mecha ID</a></th>
+        <th><a href="" ng-click="sortField='mechaDescriptor'; reverse = !reverse">Mecha Descriptor</a></th>
+        <th><a href="" ng-click="sortField='mechaURL'; reverse = !reverse">Mecha Image</a></th>
+    </tr>
+    <tr ng-repeat="mech in mechs| filter:query |orderBy:sortField:reverse">
+        <!--Had to add a min-width because the icons were too tiny-->
+        <a><td><img style="min-width:15px" src="icons/view.png"></td></a>
+        <a><td><img style="min-width:15px"  src="icons/update.png"></td></a>
+        <a><td><img style="min-width:15px" src="icons/delete.png"></td></a>
+        <td>{{mech.mechaName}}</td>
+        <td>{{mech.mechaHeight}}</td>
+        <td>{{mech.mechaTable_ID}}</td>
+        <td>{{mech.mechaDescriptor}}</td>
+        <td class="imgHolder"><img alt src="{{mech.mechaURL}}"></td>
+    </tr>
+</table>
+</div>

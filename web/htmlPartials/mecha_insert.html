@@ -1,0 +1,33 @@
+<h2>{{insertUser}} User</h2>
+
+<table>
+    <!-- this row will be hidden or displayed depending on the value of boolean isUpdateMode -->
+    <tr >
+        <td class="fieldName">Mecha name</td>
+        <td><input type='text' ng-model='newmecha.mechaName'></td>
+        <td class="fieldError">{{myErrors.mechaName}}</td>
+    </tr>
+    <tr>
+        <td class="fieldName">Mecha height</td>
+        <td><input type='text' ng-model="newmecha.mechaHeight"></td>
+        <td class="fieldError">{{myErrors.mechaHeight}}</td>
+    </tr>
+    <tr>
+        <td class="fieldName">Mecha Descriptor</td>
+        <td><input type="text" ng-model="newmecha.mechaDescriptor"></td>
+        <td class="fieldError">{{myErrors.mechaDescriptor}}</td>
+    </tr>
+    <tr>
+        <td class="fieldName">Mecha image URL</td>
+        <td><input type="text" ng-model="newmecha.mechaImgURL"></td>
+        <td class="fieldError">{{myErrors.mechaImgURL}}</td>
+    </tr>
+</table>
+<!--
+--><p>
+    <input type="button" value="Insert Save" data-ng-click="insertSave()">
+    &nbsp;&nbsp;&nbsp;{{status}}
+</p>
+<p>
+    <a href="#/list">back to list</a>
+</p>
