@@ -1,0 +1,42 @@
+<h2>{{insertUser}} User</h2>
+
+<table>
+    <!-- this row will be hidden or displayed depending on the value of boolean isUpdateMode -->
+    <tr data-ng-show="isUpdateMode">
+        <td class="fieldName">Id</td>
+        <td>{{newperson.id}}</td>
+        <td class="fieldError">{{myErrors.id}}</td>
+    <script src="../js/user_insert_controller.js" type="text/javascript"></script>
+    </tr>
+    <tr >
+        <td class="fieldName">email</td>
+        <td><input type='text' ng-model='newperson.email'></td>
+        <td class="fieldError">{{myErrors.email}}</td>
+    </tr>
+    <tr>
+        <td class="fieldName">password</td>
+        <td><input type="password" ng-model="newperson.password"></td>
+        <td class="fieldError">{{myErrors.password}}</td>
+    </tr>
+    <tr>
+        <td class="fieldName">nickname</td>
+        <td><input type="text" ng-model="newperson.nickname"></td>
+        <td class="fieldError">{{myErrors.nickname}}</td>
+    </tr>
+    <tr>
+        <td class="fieldName">rolename</td>
+        <td><input type="text" ng-model="newperson.rolename"></td>
+        <td class="fieldError">{{myErrors.rolename}}</td>
+    </tr>
+</table>
+<!--
+--><p>
+    <input type="button" value="Insert Save" data-ng-show="isInsertMode" 
+           data-ng-click="insertSave()">
+    <input type="button" value="Update Save" data-ng-show="isUpdateMode"
+           data-ng-click="updateSave()">
+    &nbsp;&nbsp;&nbsp;{{status}}
+</p>
+<p>
+    <a href="#/list">back to list</a>
+</p>

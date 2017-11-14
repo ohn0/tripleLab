@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Using the latest recommended URLs for Angular 1 (Spring 2017) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+            <link href="styles.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body ng-app="labApp">
+
+        <div id='titleNav'>
+            <div id='title'>Mecha table</div>
+            <div id='nav'>
+                    <div class="navLink"><a href="#viewMecha">Home</a></div>
+                <div class='navLink'><a href='#insertUser'>Register</a></div>
+                <div class='navLink'><a href='#insertMecha'>Insert Mecha</a></div>
+                <div class='navLink'><a href='#viewUsers'>Users</a></div>
+                <div class='navLink'><a href='../labs.html'>Labs</a></div> 
+                <div class='navLink'><a>Log on</a></div> 
+                <div class='navLink'><a>Log off</a></div> 
+            </div>
+        </div>
+        <div style='clear:both'></div>
+
+        <div id='contentArea'> 
+            <div ng-view=""> </div>
+        </div>
+        <script src='js/user_route.js'></script>
+        <script src='js/user_insert_controller.js'></script>
+        <script src='js/user_update_controller.js'></script>
+        <script src='js/mecha_insert_controller.js'></script>
+        <script src='js/mecha_list_controller.js'></script>
+        <script src='js/user_list_controller.js'></script>
+    </body>
+</html>
