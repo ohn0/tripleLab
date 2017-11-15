@@ -2,11 +2,6 @@
 
 <table>
     <!-- this row will be hidden or displayed depending on the value of boolean isUpdateMode -->
-    <tr data-ng-show="isUpdateMode">
-        <td class="fieldName">Id</td>
-        <td>{{newmecha.mechaID}}</td>
-        <td class="fieldError">{{myErrors.id}}</td>
-    </tr>
     <tr >
         <td class="fieldName">Mecha name</td>
         <td><input type='text' ng-model='newmecha.mechaName'></td>
@@ -31,8 +26,6 @@
 <!--
 --><p>
     <input type="button" value="Insert Save" data-ng-click="insertSave()">
-    <input type="button" value="Update Save" data-ng-show="isUpdateMode"
-           data-ng-click="updateSave()">
     &nbsp;&nbsp;&nbsp;{{status}}
 </p>
 <p>

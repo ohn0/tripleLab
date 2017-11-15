@@ -6,18 +6,17 @@ import java.sql.ResultSet;
 
 // classes in my project
 import dbUtils.*;
-import model.mecha.*;
+import model.mechaTable.*;
 
 public class Mechaview {
 
     public static StringData extractPerson(ResultSet results) {
         StringData mecha = new StringData();
         try {
-            mecha.mechaDescriptor = FormatUtils.formatString(results.getObject("mechaDescriptor"));
-            mecha.mechaImgURL = FormatUtils.formatString(results.getObject("mechaURL"));
+            mecha.mechaDescriptor = FormatUtils.formatInteger(results.getObject("mechaDescriptor"));
+            mecha.mechaURL = FormatUtils.formatString(results.getObject("mechaURL"));
             mecha.mechaName = FormatUtils.formatString(results.getObject("mechaName"));
-            mecha.mechaHeight = FormatUtils.formatInteger(results.getObject("mechaHeight"));
-            mecha.mechaID = FormatUtils.formatInteger(results.getObject("mechaTable_ID"));
+            mecha.mechaHeight = FormatUtils.formatString(results.getObject("mechaHeight"));
         } catch (Exception e) {
             mecha.errorMsg = "Data Exception thrown in PersonView.extractPerson(): " + e.getMessage();
             System.out.println("*****" + mecha.errorMsg);
@@ -32,7 +31,7 @@ public class Mechaview {
         mechaList.dbError = dbc.getErr();
         if (mechaList.dbError.length() == 0) {
 
-            String sql = "SELECT mechaTable_ID, mechaDescriptor, mechaName, mechaURL, FROM mechaTable ORDER BY mechaTable_ID";
+            String sql = "SELECT userID, userPassword, userNickname FROM userTable ORDER BY userID";
 
             try {
                 PreparedStatement stmt = dbc.getConn().prepareStatement(sql);
@@ -61,8 +60,8 @@ public class Mechaview {
         mecha.errorMsg = dbc.getErr();
         if (mecha.errorMsg.length() == 0) {
 
-            String sql = "SELECT mechaTable_ID, mechaDescriptor, mechaHeight, mechaURL, mechaName "
-                    + "FROM mechaTable WHERE mechaTable_ID = ?";
+            String sql = "SELECT userID, userEmail, userPassword, userNickname, "
+                    + "userRolename FROM userTable ORDER BY userID";
 
             try {
                 PreparedStatement stmt = dbc.getConn().prepareStatement(sql);

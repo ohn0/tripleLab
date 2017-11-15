@@ -15,13 +15,7 @@ labApp.config(function ($routeProvider) {
         controller: 'mecha_insert_controller'
     }).when('/update/:id', {
         templateUrl: 'htmlPartials/user_insert.html',
-        controller: 'user_update_controller'
-    }).when('/mechaUpdate/:id', {
-        templateUrl: 'htmlPartials/mecha_insert.html',
-        controller: 'mecha_update_controller'
-    }).when('/mechaDelete/:id', {
-        templateUrl: 'htmlPartials/mechaList.html',
-        controller: 'mecha_delete_controller'
+        controller: 'user_insert_controller'
     }).otherwise({
         redirectTo: '/viewMecha'
     });

@@ -13,7 +13,7 @@ package model.mecha;
 public class StringData {
 
     public String mechaName = "";
-    public String mechaID = "";
+//    public String id = "";
     public String mechaHeight= "";
     public String mechaDescriptor = "";
     public String mechaImgURL= "";
@@ -25,7 +25,7 @@ public class StringData {
     }
 
     public int getCharacterCount() {
-        String s =  this.mechaID + this.mechaName + this.mechaHeight + this.mechaDescriptor +
+        String s =  this.mechaName + this.mechaHeight + this.mechaDescriptor +
                    this.mechaImgURL + this.errorMsg ;
         return s.length();
     }

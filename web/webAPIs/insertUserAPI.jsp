@@ -1,6 +1,6 @@
 <%@page contentType="application/json" pageEncoding="UTF-8"%> 
 <%@page language="java" import="dbUtils.DbConn"%> 
-<%@page language="java" import="model.user.*"%>
+<%@page language="java" import="model.mecha.*"%>
 
 <%@page language="java" import="com.google.gson.*" %>
 
