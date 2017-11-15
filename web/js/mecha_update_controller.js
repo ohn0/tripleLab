@@ -22,7 +22,7 @@ labApp.controller('mecha_update_controller', function ($scope, $http, $routePara
     var url = "webAPIs/mechaJson.jsp?id=" + $routeParams.id;
     $http.get(url).then(
             function (response) { // this function will run if http.get success
-                console.log("Person Update (get) ajax success");
+                console.log("Mecha Update (get) ajax success");
                 console.log(response);
                 console.log("");
                 $scope.newmecha = response.data;
@@ -30,7 +30,7 @@ labApp.controller('mecha_update_controller', function ($scope, $http, $routePara
                 $scope.errorMsg = "";
             },
             function (response) { // this function will run if http.get error
-                console.log("Person Update (get) ajax error");
+                console.log("Mecha Update (get) ajax error");
                 console.log(response);
                 console.log("");
                 $scope.errorMsg = "Error: " + response.status + " " + response.statusText;
@@ -49,17 +49,17 @@ labApp.controller('mecha_update_controller', function ($scope, $http, $routePara
 
         $http.get(url).then(
                 function (response) { // this function will run if http.get success
-                    console.log("Person Update/Save ajax success");
+                    console.log("Mecha Update/Save ajax success");
                     console.log(response);
                     console.log("");
                     $scope.myErrors = response.data;
                     $scope.status = $scope.myErrors.errorMsg;
                     if ($scope.myErrors.errorMsg.length === 0) {
-                        $scope.status = "Person Sucessfully Updated";
+                        $scope.status = "Mecha Sucessfully Updated";
                     }
                 },
                 function (response) { // this function will run if http.get error
-                    console.log("Person Update/Save ajax error");
+                    console.log("Mecha Update/Save ajax error");
                     console.log(response);
                     console.log("");
                     $scope.status = "Error: " + response.status + " " + response.statusText;

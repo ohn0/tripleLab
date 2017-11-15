@@ -12,34 +12,34 @@ labApp.controller('user_insert_controller', function ($scope, $http) {
     // and there is a second person object that holds all the field level error messages - 
     // clear all of those out too... 
     
-    $scope.newperson = "";
+    $scope.newuser = "";
     $scope.myErrors = "";
 
     //Create a new person (this is the Insert/Save button)
     $scope.insertSave = function () {
-        console.log("creating person");
-        console.log($scope.newperson);
+        console.log("creating Mecha");
+        console.log($scope.newuser);
 
         // empty out all the field level user error messages in case of an ajax error 
         $scope.myErrors = "";
 
-        var myData = JSON.stringify($scope.newperson);
+        var myData = JSON.stringify($scope.newuser);
         myData = escape(myData);
         var url = "webAPIs/insertUserAPI.jsp?jsonData=" + myData;
 
         $http.get(url).then(
                 function (response) { // this function will run if http.get success
-                    console.log("Person Insert/Save ajax success");
+                    console.log("User Insert/Save ajax success");
                     console.log(response);
                     console.log("");
                     $scope.myErrors = response.data;
                     $scope.status = $scope.myErrors.errorMsg;
                     if ($scope.myErrors.errorMsg.length === 0) {
-                        $scope.status = "Person Sucessfully Inserted";
+                        $scope.status = "User Sucessfully Inserted";
                     }
                 },
                 function (response) { // this function will run if http.get error
-                    console.log("Person Insert/Save ajax error");
+                    console.log("User Insert/Save ajax error");
                     console.log(response);
                     console.log("");
                     $scope.status = "Error: " + response.status + " " + response.statusText;

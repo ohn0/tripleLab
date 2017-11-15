@@ -14,7 +14,7 @@ labApp.controller('user_update_controller', function ($scope, $http, $routeParam
     $scope.personId = $routeParams.id;
 
     // blank out the new person in case the ajax get fails to populate newperson
-    $scope.newperson = "";
+    $scope.newuser = "";
 
     // blank out error message object
     $scope.myErrors = "";
@@ -22,15 +22,15 @@ labApp.controller('user_update_controller', function ($scope, $http, $routeParam
     var url = "webAPIs/userJson.jsp?id=" + $routeParams.id;
     $http.get(url).then(
             function (response) { // this function will run if http.get success
-                console.log("Person Update (get) ajax success");
+                console.log("User Update (get) ajax success");
                 console.log(response);
                 console.log("");
-                $scope.newperson = response.data;
-                console.log($scope.newperson);
+                $scope.newuser = response.data;
+                console.log($scope.newuser);
                 $scope.errorMsg = "";
             },
             function (response) { // this function will run if http.get error
-                console.log("Person Update (get) ajax error");
+                console.log("User Update (get) ajax error");
                 console.log(response);
                 console.log("");
                 $scope.errorMsg = "Error: " + response.status + " " + response.statusText;
@@ -43,23 +43,23 @@ labApp.controller('user_update_controller', function ($scope, $http, $routeParam
         // empty out all the field level user error messages in case of an ajax error 
         $scope.myErrors = "";
         $scope.isUpdateMode = true;
-        var myData = JSON.stringify($scope.newperson);
+        var myData = JSON.stringify($scope.newuser);
         myData = escape(myData);
         var url = "webAPIs/userUpdateAPI.jsp?jsonData=" + myData;
 
         $http.get(url).then(
                 function (response) { // this function will run if http.get success
-                    console.log("Person Update/Save ajax success");
+                    console.log("User Update/Save ajax success");
                     console.log(response);
                     console.log("");
                     $scope.myErrors = response.data;
                     $scope.status = $scope.myErrors.errorMsg;
                     if ($scope.myErrors.errorMsg.length === 0) {
-                        $scope.status = "Person Sucessfully Updated";
+                        $scope.status = "User Sucessfully Updated";
                     }
                 },
                 function (response) { // this function will run if http.get error
-                    console.log("Person Update/Save ajax error");
+                    console.log("User Update/Save ajax error");
                     console.log(response);
                     console.log("");
                     $scope.status = "Error: " + response.status + " " + response.statusText;

@@ -14,7 +14,7 @@
     <tr ng-repeat="mech in mechs| filter:query |orderBy:sortField:reverse">
         <!--Had to add a min-width because the icons were too tiny-->
         <td>
-            <a href="#mechaView/{{mech.mechaTable_ID}}"><img src="icons/view.png"></a>
+            <a href="#mechaDetail/{{mech.mechaTable_ID}}"><img src="icons/view.png"></a>
         </td>
         <td>
             <a href="#mechaUpdate/{{mech.mechaTable_ID}}"><img src="icons/update.png"></a>
