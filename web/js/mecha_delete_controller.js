@@ -28,9 +28,9 @@ labApp.controller('mecha_delete_controller', function($scope, $http, $routeParam
 
     console.log("mecha delete controller");
     console.log($routeParams);
-    if ($routeParams.mechaTable_ID) {
-        console.log("First I will delete person " + $routeParams.mechaTable_ID);
-        deletePerson($routeParams.mechaTable_ID);
+    if ($routeParams.id) {
+        console.log("First I will delete person " + $routeParams.id);
+        deletePerson($routeParams.id);
     } else {
         console.log("Listing persons without deleting first.");
     }

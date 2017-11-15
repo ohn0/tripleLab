@@ -17,7 +17,7 @@
 
     if (list.dbError.length() == 0) { // got open connection 
 
-        list = users.buildPersonList(dbc);
+        list = users.buildUserList(dbc);
     } 
 
     // PREVENT DB connection leaks:

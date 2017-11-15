@@ -10,27 +10,27 @@ import model.user.*;
 
 public class Userview {
 
-    public static StringData extractPerson(ResultSet results) {
-        StringData person = new StringData();
+    public static StringData extractUser(ResultSet results) {
+        StringData user = new StringData();
         try {
-            person.id = FormatUtils.formatInteger(results.getObject("userID"));
-            person.email = FormatUtils.formatString(results.getObject("userEmail"));
-            person.password = FormatUtils.formatString(results.getObject("userPassword"));
-            person.nickname = FormatUtils.formatString(results.getObject("userNickname"));
-            person.rolename = FormatUtils.formatString(results.getObject("userRolename"));
+            user.id = FormatUtils.formatInteger(results.getObject("userID"));
+            user.email = FormatUtils.formatString(results.getObject("userEmail"));
+            user.password = FormatUtils.formatString(results.getObject("userPassword"));
+            user.nickname = FormatUtils.formatString(results.getObject("userNickname"));
+            user.rolename = FormatUtils.formatString(results.getObject("userRolename"));
         } catch (Exception e) {
-            person.errorMsg = "Data Exception thrown in PersonView.extractPerson(): " + e.getMessage();
-            System.out.println("*****" + person.errorMsg);
+            user.errorMsg = "Data Exception thrown in Userview.extractUser(): " + e.getMessage();
+            System.out.println("*****" + user.errorMsg);
         }
-        return person;
+        return user;
     }
 
-    public static StringDataList buildPersonList(DbConn dbc) {
+    public static StringDataList buildUserList(DbConn dbc) {
 
-        StringDataList personList = new StringDataList();
+        StringDataList userList = new StringDataList();
 
-        personList.dbError = dbc.getErr();
-        if (personList.dbError.length() == 0) {
+        userList.dbError = dbc.getErr();
+        if (userList.dbError.length() == 0) {
 
             String sql = "SELECT userEmail, userID, userPassword, userNickname, userRolename "
                     + "FROM userTable ORDER BY userID";
@@ -40,27 +40,27 @@ public class Userview {
                 ResultSet results = stmt.executeQuery();
 
                 while (results.next()) {
-                    personList.add(extractPerson(results));
+                    userList.add(extractUser(results));
                 }
             } catch (Exception e) {
-                personList.dbError = "SQL Excepption thrown in PersonView.BuildPersonList(): " + e.getMessage();
-                System.out.println("*****" + personList.dbError);
+                userList.dbError = "SQL Excepption thrown in Userview.BuildUserList(): " + e.getMessage();
+                System.out.println("*****" + userList.dbError);
             }
         }
-        return personList;
+        return userList;
     }
 
-    public static StringData findPersonById(DbConn dbc, String id) {
+    public static StringData findUserById(DbConn dbc, String id) {
 
-        StringData person = new StringData();
+        StringData user = new StringData();
 
         if (id == null) {
-            person.errorMsg = "Cannot find person with null id.";
-            return person;
+            user.errorMsg = "Cannot find person with null id.";
+            return user;
         }
 
-        person.errorMsg = dbc.getErr();
-        if (person.errorMsg.length() == 0) {
+        user.errorMsg = dbc.getErr();
+        if (user.errorMsg.length() == 0) {
 
             String sql = "SELECT userID, userEmail, userPassword, userNickname, "
                     + "userRolename FROM userTable WHERE userID=?";
@@ -71,14 +71,14 @@ public class Userview {
                 ResultSet results = stmt.executeQuery();
 
                 if (results.next()) {
-                    person = extractPerson(results);
+                    user = extractUser(results);
                 }
             } catch (Exception e) {
-                person.errorMsg = "SQL Exception thrown in PersonView.BuildPerson(): " + e.getMessage();
-                System.out.println("*****" + person.errorMsg);
+                user.errorMsg = "SQL Exception thrown in Userview.Builduser(): " + e.getMessage();
+                System.out.println("*****" + user.errorMsg);
             }
         }
-        return person;
+        return user;
     }
 
 }

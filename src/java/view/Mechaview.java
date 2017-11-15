@@ -10,7 +10,7 @@ import model.mecha.*;
 
 public class Mechaview {
 
-    public static StringData extractPerson(ResultSet results) {
+    public static StringData extractMecha(ResultSet results) {
         StringData mecha = new StringData();
         try {
             mecha.mechaDescriptor = FormatUtils.formatString(results.getObject("mechaDescriptor"));
@@ -19,13 +19,13 @@ public class Mechaview {
             mecha.mechaHeight = FormatUtils.formatInteger(results.getObject("mechaHeight"));
             mecha.mechaID = FormatUtils.formatInteger(results.getObject("mechaTable_ID"));
         } catch (Exception e) {
-            mecha.errorMsg = "Data Exception thrown in PersonView.extractPerson(): " + e.getMessage();
+            mecha.errorMsg = "Data Exception thrown in Mechaview.extractMecha(): " + e.getMessage();
             System.out.println("*****" + mecha.errorMsg);
         }
         return mecha;
     }
 
-    public static StringDataList buildPersonList(DbConn dbc) {
+    public static StringDataList buildMechaList(DbConn dbc) {
 
         StringDataList mechaList = new StringDataList();
 
@@ -39,17 +39,17 @@ public class Mechaview {
                 ResultSet results = stmt.executeQuery();
 
                 while (results.next()) {
-                    mechaList.add(extractPerson(results));
+                    mechaList.add(extractMecha(results));
                 }
             } catch (Exception e) {
-                mechaList.dbError = "SQL Excepption thrown in PersonView.BuildPersonList(): " + e.getMessage();
+                mechaList.dbError = "SQL Excepption thrown in Mechaview.buildMechaList(): " + e.getMessage();
                 System.out.println("*****" + mechaList.dbError);
             }
         }
         return mechaList;
     }
 
-    public static StringData findPersonById(DbConn dbc, String id) {
+    public static StringData findMechaByID(DbConn dbc, String id) {
 
         StringData mecha = new StringData();
 
@@ -70,10 +70,10 @@ public class Mechaview {
                 ResultSet results = stmt.executeQuery();
 
                 if (results.next()) {
-                    mecha = extractPerson(results);
+                    mecha = extractMecha(results);
                 }
             } catch (Exception e) {
-                mecha.errorMsg = "SQL Exception thrown in PersonView.BuildPerson(): " + e.getMessage();
+                mecha.errorMsg = "SQL Exception thrown in Mechaview.findMecha(): " + e.getMessage();
                 System.out.println("*****" + mecha.errorMsg);
             }
         }

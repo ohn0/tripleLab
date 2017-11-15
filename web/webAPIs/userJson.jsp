@@ -16,7 +16,7 @@
     String id = request.getParameter("id");
     
     //findPersonById will check if id is null or not...
-    StringData person = Userview.findPersonById(dbc,id); 
+    StringData person = Userview.findUserById(dbc,id); 
     out.print(gson.toJson(person).trim());
 
     // PREVENT DB connection leaks:
