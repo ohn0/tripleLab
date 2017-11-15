@@ -14,24 +14,23 @@
 
     DbConn dbc = new DbConn();
     String deleteId = request.getParameter("id");
-    System.out.println("ready to delete person "+deleteId);
+    System.out.println("ready to delete mecha "+deleteId);
     
     // just so we have an actual pojo (plain old java object)
     // to convert to json. 
-    StringData person = new StringData();
+    StringData mecha = new StringData();
     
-    person.errorMsg = "";
+    mecha.errorMsg = "";
 
     if (deleteId == null) {
-        person.errorMsg = "Cannot delete -- no id was received";
+        mecha.errorMsg = "Cannot delete -- no id was received";
     } else {
-        person.errorMsg = dbc.getErr();
-        if (person.errorMsg.length() == 0) { // means db connection is ok
-            //System.out.println("personDelete.jsp ready to delete id "+deleteId);
-            person.errorMsg = TableMods.deleteById(deleteId, dbc);
+        mecha.errorMsg = dbc.getErr();
+        if (mecha.errorMsg.length() == 0) { // means db connection is ok
+            mecha.errorMsg = TableMods.deleteById(deleteId, dbc);
         }
     }
-    System.out.println("result of that delete is: "+person.errorMsg+"(empty string means worked)");
-    out.print(gson.toJson(person));
+    System.out.println("result of that delete is: "+mecha.errorMsg+"(empty string means worked)");
+    out.print(gson.toJson(mecha));
     dbc.close();
 %>

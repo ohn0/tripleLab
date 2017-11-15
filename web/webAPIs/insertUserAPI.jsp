@@ -14,7 +14,6 @@
 
     DbConn dbc = new DbConn();
     StringData errorMsgs = new StringData();
-//localhost:8080/jspApp/webAPIs/userInsert.jsp?jsonData={password:'pw', rolename:'member', nickname:'nick'}
     String jsonInsertData = request.getParameter("jsonData");
     if (jsonInsertData == null) {
         errorMsgs.errorMsg = "Cannot insert -- no data was received";

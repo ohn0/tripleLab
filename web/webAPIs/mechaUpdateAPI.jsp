@@ -28,7 +28,7 @@
         errorMsgs.errorMsg = dbc.getErr();
         if (errorMsgs.errorMsg.length() == 0) { // means db connection is ok
 
-            System.out.println("personUpdate.jsp ready to update from this data: "
+            System.out.println("mechaUpdate.jsp ready to update from this data: "
                     + jsonUpdateData);
 
             // Convert the json format (using the GSON object) to a POJO (plain old java object)
@@ -38,7 +38,7 @@
             // errorMsgs (StringData object). 
             errorMsgs = TableMods.update(updateData, dbc); // this is the form level message 
             
-            System.out.println("personUpdate.jsp found these errors: "
+            System.out.println("mechaUpdate.jsp found these errors: "
                     + jsonUpdateData);
         }
     }

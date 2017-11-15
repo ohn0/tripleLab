@@ -16,8 +16,8 @@
     String id = request.getParameter("id");
     
     //findPersonById will check if id is null or not...
-    StringData person = view.Mechaview.findMechaByID(dbc,id); 
-    out.print(gson.toJson(person).trim());
+    StringData mecha = view.Mechaview.findMechaByID(dbc,id); 
+    out.print(gson.toJson(mecha).trim());
 
     // PREVENT DB connection leaks:
     dbc.close(); // EVERY code path that opens a db connection, must also close it.

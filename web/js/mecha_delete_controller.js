@@ -6,18 +6,18 @@ labApp.controller('mecha_delete_controller', function($scope, $http, $routeParam
 
             $http.get(url).then(
                     function (response) { // this function will run if http.get success
-                        console.log("Person Delete ajax success");
+                        console.log("Mecha Delete ajax success");
                         console.log(response);
                         console.log("");
                         $scope.deleteMsg = response.data.errorMsg;
                         if ($scope.deleteMsg.length === 0) {
-                            $scope.deleteMsg = "Sucessfully deleted person " + id;
+                            $scope.deleteMsg = "Sucessfully deleted mecha with ID " + id;
                         } else {
                             $scope.deleteMsg = "Delete Error: " + $scope.deleteMsg;
                         }
                     },
                     function (response) { // this function will run if http.get error
-                        console.log("Person Delete ajax error");
+                        console.log("Mecha delete ajax error");
                         console.log(response);
                         console.log("");
                         $scope.deleteMsg = "Delete Error: " + response.status + " " + response.statusText;
@@ -29,10 +29,10 @@ labApp.controller('mecha_delete_controller', function($scope, $http, $routeParam
     console.log("mecha delete controller");
     console.log($routeParams);
     if ($routeParams.id) {
-        console.log("First I will delete person " + $routeParams.id);
+        console.log("First I will delete the mecha with ID " + $routeParams.id);
         deletePerson($routeParams.id);
     } else {
-        console.log("Listing persons without deleting first.");
+        console.log("Listing mecha without deleting first.");
     }
         $scope.erroMsg = "";
     $http.get("webAPIs/getMechaListAPI.jsp").then(
