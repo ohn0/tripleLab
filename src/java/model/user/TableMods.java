@@ -143,7 +143,7 @@ public class TableMods {
             if (formMsg.length() == 0) { // db connection is good
 
                 // prepare the statement
-                String sql = "UPDATE userTable SET UserNickname=?, userPassword=?, userEmail=?, RoleName=?, WHERE UserID=?";
+                String sql = "UPDATE userTable SET userNickname=?, userPassword=?, userEmail=?, userRolename=? WHERE userID=?";
 
                 // PrepStatement is Sally's wrapper class for java.sql.PreparedStatement
                 // Only difference is that Sally's class takes care of encoding null 

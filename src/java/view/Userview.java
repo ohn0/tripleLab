@@ -63,7 +63,7 @@ public class Userview {
         if (person.errorMsg.length() == 0) {
 
             String sql = "SELECT userID, userEmail, userPassword, userNickname, "
-                    + "userRolename FROM userTable ORDER BY userID";
+                    + "userRolename FROM userTable WHERE userID=?";
 
             try {
                 PreparedStatement stmt = dbc.getConn().prepareStatement(sql);
