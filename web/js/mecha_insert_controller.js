@@ -1,4 +1,23 @@
 labApp.controller('mecha_insert_controller', function ($scope, $http) {
+    $scope.isLoggedIn = false;
+    $http.get("webAPIs/checkStatus.jsp").then(
+        function(response){
+            console.log("Status check success.");
+            if(typeof response.data.email === "undefined"){
+                console.log("You are not logged in.");
+                $scope.isLoggedIn = false;
+                $scope.status = "You are not logged in, you will not be able to\n\
+                                modify the database.";
+            }
+            else{
+                console.log("You are logged in.\n" + response.data.toString());
+                $scope.isLoggedIn = true;
+            }
+        },
+        function(response){
+            console.log(response);
+        }
+    );
     console.log("mecha_insert_controller");
     console.log("??");
     // these booleans control which Save button the user will see in the 
@@ -17,6 +36,11 @@ labApp.controller('mecha_insert_controller', function ($scope, $http) {
 
     //Create a new person (this is the Insert/Save button)
     $scope.insertSave = function () {
+        
+        if(!$scope.isLoggedIn){
+            $scope.status = "Please log in to modify the database.";
+            return ;
+        }
         console.log("creating mecha");
         console.log($scope.newmecha);
 

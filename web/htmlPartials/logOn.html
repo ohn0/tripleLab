@@ -1,0 +1,28 @@
+<div>
+    <h1>Login</h1>
+    <table>
+        <tr>
+            <td>Email</td>
+            <td>
+                <input type='text' name='email' size='40' 
+                       ng-model='loginInfo.email'/>
+            </td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>
+                <input type='password' name='password' size='40'
+                       ng-model='loginInfo.password'/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type='submit' value='log in' data-ng-click='login()'/>
+            </td>
+            <td>
+                <span class='message'>{{loginResult}}</span>
+            </td>
+        </tr>
+    </table>
+    
+</div>
