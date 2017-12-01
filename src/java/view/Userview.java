@@ -49,6 +49,52 @@ public class Userview {
         }
         return userList;
     }
+    
+    public static String usersByName(String cssClassForResultSetTable, DbConn dbc) {
+        StringBuilder sb = new StringBuilder("");
+        PreparedStatement stmt = null;
+        ResultSet results = null;
+        try {
+            //sb.append("ready to create the statement & execute query " + "<br/>");
+
+            // String sql = "select last_name, first_name, customer_id, address, city, state, zip, credit_limit "+
+            //       "from customer order by last_name, first_name";
+            String sql = "select customer_id, first_name, last_name, email_address, pwd, "
+                    + " address, city, state, zip, credit_limit "
+                    + " from customer order by last_name, first_name";
+
+            stmt = dbc.getConn().prepareStatement(sql);
+            results = stmt.executeQuery();
+            //sb.append("executed the query " + "<br/><br/>");
+            sb.append("<table class='");
+            sb.append(cssClassForResultSetTable);
+            sb.append("'>");
+            sb.append("<tr>");
+            sb.append("<th style='text-align:left'>Email</th>");
+            sb.append("<th style='text-align:left'>Password</th>");
+            sb.append("<th style='text-align:left'>First Name</th>");
+            sb.append("<th style='text-align:left'>Last Name</th>");
+            sb.append("<th style='text-align:right'>Credit Limit</th>");
+            sb.append("</tr>");
+            while (results.next()) {
+                sb.append("<tr>");
+                sb.append(FormatUtils.formatStringTd(results.getObject("email_address")));
+                sb.append(FormatUtils.formatStringTd(results.getObject("pwd")));
+                sb.append(FormatUtils.formatStringTd(results.getObject("first_name")));
+                sb.append(FormatUtils.formatStringTd(results.getObject("last_name")));
+                sb.append(FormatUtils.formatDollarTd(results.getObject("credit_limit")));
+                sb.append("</tr>\n");
+            }
+            sb.append("</table>");
+            results.close();
+            stmt.close();
+            return sb.toString();
+        } catch (Exception e) {
+            return "Exception thrown in CustomerView.CustomersByName(): " + e.getMessage()
+                    + "<br/> partial output: <br/>" + sb.toString();
+        }
+    }
+
 
     public static StringData findUserById(DbConn dbc, String id) {
 
