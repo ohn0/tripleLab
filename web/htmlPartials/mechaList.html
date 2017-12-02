@@ -14,13 +14,13 @@
     <tr ng-repeat="mech in mechs| filter:query |orderBy:sortField:reverse">
         <!--Had to add a min-width because the icons were too tiny-->
         <td class='icon' data-ng-show='isLoggedIn'>
-            <a href="#mechaDetail/{{mech.mechaTable_ID}}"><img src="icons/view.png"></a>
+            <a  href="#mechaDetail/{{mech.mechaTable_ID}}"><img src="icons/view.png"></a>
         </td>
         <td class='icon' data-ng-show='isLoggedIn'>
-            <a href="#mechaUpdate/{{mech.mechaTable_ID}}"><img src="icons/update.png"></a>
+            <a  href="#mechaUpdate/{{mech.mechaTable_ID}}"><img  src="icons/update.png"></a>
         </td>
         <td class='icon' data-ng-show='isLoggedIn'>
-            <a href="#mechaDelete/{{mech.mechaTable_ID}}"><img src="icons/delete.png"></a>
+            <a  href="#mechaDelete/{{mech.mechaTable_ID}}"><img  src="icons/delete.png"></a>
         </td>
         <td>{{mech.mechaName}}</td>
         <td>{{mech.mechaHeight}}</td>

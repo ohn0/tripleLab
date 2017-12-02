@@ -8,7 +8,6 @@
     StringData userData = (StringData) session.getAttribute("email");
     if(userData == null){
         System.out.println("Null user data when checking status.");
-//        out.print("null");
     }else{
         Gson gson = new Gson();
         out.print(gson.toJson(userData).trim());

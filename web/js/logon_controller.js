@@ -1,12 +1,14 @@
-labApp.controller('logon_controller', function ($scope, $http) {
+labApp.controller('logon_controller',function ($scope, $http, loginStatus) {
     console.log("logon_controller");
     $scope.loginInfo = "";
     $scope.loginResult = "Enter login info";
     $scope.loggedIn = false;
+    loginStatus.loggedIn();
+    
     $scope.login = function () {
         console.log("logging in with following credentials: " +
                 $scope.loginInfo.email + ' ' + $scope.loginInfo.password);
-
+        loggedOn = true;
         var url = "webAPIs/logon.jsp?&email=" + $scope.loginInfo.email + "&password=" +
                 $scope.loginInfo.password;
         $http.get(url).then(
@@ -18,7 +20,7 @@ labApp.controller('logon_controller', function ($scope, $http) {
                                 response.data.nickname;
                         $scope.loggedIn = true;
                     } else {
-                        $scope.loginResult = "Login unsuccessful, incorrect username/password."
+                        $scope.loginResult = "Login unsuccessful, incorrect username/password.";
                     }
                 },
                 function (response) {

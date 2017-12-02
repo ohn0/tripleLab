@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Neel/Documents/jspApp/tripleLab/web/js/user_insert_controller.js</file>
-            <file>file:/C:/Users/Neel/Documents/jspApp/tripleLab/web/htmlPartials/user_insert.html</file>
-            <file>file:/C:/Users/Neel/Documents/jspApp/tripleLab/web/htmlPartials/userList.html</file>
-            <file>file:/C:/Users/Neel/Documents/jspApp/tripleLab/web/index.html</file>
-            <file>file:/C:/Users/Neel/Documents/jspApp/tripleLab/web/js/user_route.js</file>
+            <file>file:/C:/Users/Neel/Documents/NetBeansProjects/tripleLab/web/js/logoff_controller.js</file>
+            <file>file:/C:/Users/Neel/Documents/NetBeansProjects/tripleLab/web/webAPIs/checkStatus.jsp</file>
+            <file>file:/C:/Users/Neel/Documents/NetBeansProjects/tripleLab/web/js/logon_controller.js</file>
+            <file>file:/C:/Users/Neel/Documents/NetBeansProjects/tripleLab/web/index.html</file>
+            <file>file:/C:/Users/Neel/Documents/NetBeansProjects/tripleLab/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/Neel/Documents/NetBeansProjects/tripleLab/web/js/mecha_update_controller.js</file>
+            <file>file:/C:/Users/Neel/Documents/NetBeansProjects/tripleLab/web/js/mecha_insert_controller.js</file>
+            <file>file:/C:/Users/Neel/Documents/NetBeansProjects/tripleLab/web/js/user_route.js</file>
+            <file>file:/C:/Users/Neel/Documents/NetBeansProjects/tripleLab/web/js/mecha_delete_controller.js</file>
+            <file>file:/C:/Users/Neel/Documents/NetBeansProjects/tripleLab/web/webAPIs/logoff.jsp</file>
         </group>
     </open-files>
 </project-private>

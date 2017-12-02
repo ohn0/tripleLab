@@ -2,9 +2,9 @@
 <div id="mechaDIV">
 <table id="mechaTable">
     <tr>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th data-ng-show='isLoggedIn'></th>
+        <th data-ng-show='isLoggedIn'></th>
+        <th data-ng-show='isLoggedIn'></th>
         <th><a href="" ng-click="sortField='mechaName'; reverse = !reverse">Mecha Name</a></th>
         <th><a href="" ng-click="sortField='mechaHeight'; reverse = !reverse">Mecha Height(meters)</a></th>
         <th><a href="" ng-click="sortField='mechaTable_ID'; reverse = !reverse">Mecha ID</a></th>
@@ -13,14 +13,14 @@
     </tr>
     <tr ng-repeat="mech in mechs| filter:query |orderBy:sortField:reverse">
         <!--Had to add a min-width because the icons were too tiny-->
-        <td class='icon'>
-            <a href="#mechaDetail/{{mech.mechaTable_ID}}"><img src="icons/view.png"></a>
+        <td class='icon' data-ng-show='isLoggedIn'>
+            <a  href="#mechaDetail/{{mech.mechaTable_ID}}"><img src="icons/view.png"></a>
         </td>
-        <td class='icon'>
-            <a href="#mechaUpdate/{{mech.mechaTable_ID}}"><img src="icons/update.png"></a>
+        <td class='icon' data-ng-show='isLoggedIn'>
+            <a  href="#mechaUpdate/{{mech.mechaTable_ID}}"><img  src="icons/update.png"></a>
         </td>
-        <td class='icon'>
-            <a href="#mechaDelete/{{mech.mechaTable_ID}}"><img src="icons/delete.png"></a>
+        <td class='icon' data-ng-show='isLoggedIn'>
+            <a  href="#mechaDelete/{{mech.mechaTable_ID}}"><img  src="icons/delete.png"></a>
         </td>
         <td>{{mech.mechaName}}</td>
         <td>{{mech.mechaHeight}}</td>

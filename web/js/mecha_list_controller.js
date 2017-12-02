@@ -16,6 +16,7 @@ labApp.controller('mecha_list_controller', function($scope, $http){
             console.log(response);
         }
     );
+
     $scope.erroMsg = "";
     $http.get("webAPIs/getMechaListAPI.jsp").then(
         function(response){

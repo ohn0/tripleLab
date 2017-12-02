@@ -1,5 +1,6 @@
 var labApp = angular.module('labApp', ['ngRoute']);
 
+
 labApp.config(function ($routeProvider) {
     $routeProvider.when('/insertUser',{
         templateUrl: 'htmlPartials/user_insert.html',
@@ -25,7 +26,14 @@ labApp.config(function ($routeProvider) {
     }).when('/mechaDetail/:id', {
         templateUrl: 'htmlPartials/mecha_detail.html',
         controller: 'mecha_detail_controller'
+    }).when('/logOn', {
+        templateUrl: 'htmlPartials/logOn.html',
+        controller: 'logon_controller'
+    }).when('/logOff', {
+        templateUrl: 'htmlPartials/logOff.html',
+        controller: 'logoff_controller'
     }).otherwise({
         redirectTo: '/viewMecha'
     });
 });
+

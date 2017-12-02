@@ -1,5 +1,20 @@
 
-labApp.controller('mecha_detail_controller', function ($scope, $http, $routeParams) {
+labApp.controller('mecha_detail_controller', function ($scope, $http, $routeParams, $location) {
+    $http.get("webAPIs/checkStatus.jsp").then(
+            function (response) {
+                console.log("Status cehck success.");
+                if (typeof response.data.email === "undefined") {
+                    alert("you are not logged in.");
+                    $location.url('htmlPartials/mechaList.html');
+                }
+                else {
+                    console.log("You are logged in.");
+                }
+            },
+            function (response) {
+                console.log("Uh-oh");
+            }
+    );
     console.log("mecha_detail_controller");
     console.log($routeParams);
 //    $scope.personId = $routeParams.id;

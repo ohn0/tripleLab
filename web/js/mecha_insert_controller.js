@@ -1,25 +1,22 @@
-labApp.controller('mecha_insert_controller', function ($scope, $http) {
+labApp.controller('mecha_insert_controller', function ($scope, $http, $location) {
     $scope.isLoggedIn = false;
+    $scope.status = "";
     $http.get("webAPIs/checkStatus.jsp").then(
         function(response){
-            console.log("Status check success.");
+            console.log("Status cehck success.");
             if(typeof response.data.email === "undefined"){
-                console.log("You are not logged in.");
-                $scope.isLoggedIn = false;
-                $scope.status = "You are not logged in, you will not be able to\n\
-                                modify the database.";
+                alert("you are not logged in.");
+                    $location.url('htmlPartials/mechaList.html');
             }
             else{
-                console.log("You are logged in.\n" + response.data.toString());
-                $scope.isLoggedIn = true;
+                console.log("You are logged in.");
             }
         },
         function(response){
-            console.log(response);
+            console.log("Uh-oh");
         }
     );
     console.log("mecha_insert_controller");
-    console.log("??");
     // these booleans control which Save button the user will see in the 
     // person_insert_update.html (partial html file). 
 
@@ -33,17 +30,14 @@ labApp.controller('mecha_insert_controller', function ($scope, $http) {
     
     $scope.newmecha = "";
     $scope.myErrors = "";
-
     //Create a new person (this is the Insert/Save button)
     $scope.insertSave = function () {
-        
-        if(!$scope.isLoggedIn){
-            $scope.status = "Please log in to modify the database.";
-            return ;
-        }
         console.log("creating mecha");
         console.log($scope.newmecha);
-
+        if($scope.newmecha.length === 0){
+            $scope.status = "You didn't enter anything.";
+            return;
+        }
         // empty out all the field level user error messages in case of an ajax error 
         $scope.myErrors = "";
 

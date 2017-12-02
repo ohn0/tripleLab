@@ -3,9 +3,11 @@ labApp.controller('logoff_controller', function ($scope, $http){
     $http.get("webAPIs/logoff.jsp").then(
         function(response){
             alert("You are logged off.");
+            loggedOn = false;
+
         },
         function(response){
             console.log(response);
         }
-        )
+        );
 });
